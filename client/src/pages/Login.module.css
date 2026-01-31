@@ -1,0 +1,277 @@
+.bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* LEFT SIDE - LOGIN FORM */
+.left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginBox {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.createLink {
+  color: #4e6ef2;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.createLink:hover {
+  text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordContainer .input {
+  width: 100%;
+  padding-right: 2.75rem;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.togglePassword:hover {
+  color: #4e6ef2;
+}
+
+.togglePassword svg {
+  width: 20px;
+  height: 20px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4e6ef2;
+  box-shadow: 0 0 0 3px rgba(78, 110, 242, 0.1);
+}
+
+.forgotPassword {
+  font-size: 0.9rem;
+  color: #4e6ef2;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.loginBtn {
+  padding: 0.85rem 1.5rem;
+  background: #4e6ef2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.loginBtn:hover:not(:disabled) {
+  background: #3d5ae0;
+}
+
+.loginBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  padding: 0.75rem 1rem;
+  background: #fee;
+  color: #c33;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.successMsg {
+  padding: 0.75rem 1rem;
+  background: #efe;
+  color: #3c3;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* RIGHT SIDE - INFO SECTION */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.topButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.howBtn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: #4e6ef2;
+  border: 2px solid #4e6ef2;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.howBtn:hover {
+  background: #4e6ef2;
+  color: white;
+}
+
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.aboutTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.aboutText {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.howItWorksBtn {
+  padding: 1rem 2.5rem;
+  background: #ff6b35;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.howItWorksBtn:hover {
+  background: #e55a1f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .left {
+    justify-content: center;
+  }
+
+  .loginBox {
+    padding: 2rem;
+  }
+
+  .right {
+    gap: 2rem;
+  }
+
+  .topButtons {
+    flex-direction: column;
+  }
+
+  .howBtn {
+    width: 100%;
+  }
+
+  .howItWorksBtn {
+    width: 100%;
+  }
+}
