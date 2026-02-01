@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const axiosBase = axios.create({
-  baseURL: "https://evangadi-forum-deploy-0io8.onrender.com/api",
-});
+const baseURL = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+
+const axiosBase = axios.create({ baseURL });
 
 axiosBase.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
