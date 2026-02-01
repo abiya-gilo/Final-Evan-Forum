@@ -10,17 +10,21 @@ function QuestionDetail() {
   const [answers, setAnswers] = useState([]);
   const [answerText, setAnswerText] = useState("");
 
-  const fetchData = async () => {
-    try {
-      const questionRes = await axiosBase.get(`/questions/${id}`);
-      setQuestion(questionRes.data);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const questionRes = await axiosBase.get(`/questions/${id}`);
+        setQuestion(questionRes.data);
 
-      const answersRes = await axiosBase.get(`/answers/${id}`);
-      setAnswers(answersRes.data);
-    } catch (error) {
-      console.log("Error fetching question:", error);
-    }
-  };
+        const answersRes = await axiosBase.get(`/answers/${id}`);
+        setAnswers(answersRes.data);
+      } catch (error) {
+        console.log("Error fetching question:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const submitAnswer = async (e) => {
     e.preventDefault();
@@ -33,16 +37,15 @@ function QuestionDetail() {
       });
 
       setAnswerText("");
-      fetchData();
+
+      // Refresh answers after posting (reuse the same logic as above)
+      // simplest: refetch just the answers (avoids reloading question)
+      const answersRes = await axiosBase.get(`/answers/${id}`);
+      setAnswers(answersRes.data);
     } catch (error) {
       console.log("Error posting answer:", error);
     }
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    fetchData();
-  }, [id]);
 
   if (!question) return <p>Loading...</p>;
 
